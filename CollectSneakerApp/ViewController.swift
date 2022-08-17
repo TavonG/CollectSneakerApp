@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         let button = UIButton(frame: CGRect(x:0, y:0, width: 300, height:70))
         button.setTitle("Present", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = .systemGray
         view.addSubview(button)
         button.center = view.center
         button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
@@ -22,10 +22,11 @@ class ViewController: UIViewController {
     
     @objc private func didTapButton() {
         let splitVC = UISplitViewController(style: .doubleColumn)
+        splitVC.preferredSplitBehavior = .tile
         
         let secondVC = UIViewController()
         secondVC.title = "home"
-        secondVC.view.backgroundColor = .systemBlue
+        secondVC.view.backgroundColor = .systemGray
         
         splitVC.viewControllers = [
             UINavigationController(rootViewController: MenuController(style: .plain)),
